@@ -25,33 +25,6 @@ hideAddcard.forEach(function (hide) {
     addCard.style.display = "flex";
   });
 });
-// create card
-// const createBtn = document.querySelectorAll(".createBtn");
-// createBtn.forEach(function (create) {
-//   create.addEventListener("click", function () {
-//     const cardsBox = this.closest(".box").querySelector(".cardsBox");
-//     const textContent = this.closest(".box").querySelector(".areaBox");
-//     if (textContent.value !== "") {
-//       const newList = document.createElement("div");
-//       newList.className = "card";
-//       cardsBox.appendChild(newList);
-
-//       const newListText = document.createElement("p");
-//       newListText.textContent = textContent.value;
-//       newList.appendChild(newListText);
-
-//       textContent.value = "";
-//     } else {
-//       const createCardDiv = this.closest(".box").querySelector(".createCard");
-//       const addCardDiv = this.closest(".box").querySelector(".addCard");
-//       const addCardInfo = this.closest(".box").querySelector(".addCardInfo");
-
-//       addCardInfo.style.display = "none";
-//       createCardDiv.style.display = "none";
-//       addCardDiv.style.display = "flex";
-//     }
-//   });
-// });
 
 // Create card
 const createBtn = document.querySelectorAll(".createBtn");
@@ -67,12 +40,21 @@ createBtn.forEach(function (create) {
       newList.textContent = trimmedValue;
       cardsBox.appendChild(newList);
 
-      // Store created div in localStorage
-      const sectionIndex = Array.from(
-        this.closest(".container").parentElement.children
-      ).indexOf(this.closest(".container"));
-      const cardIndex = Array.from(cardsBox.children).indexOf(newList);
-      localStorage.setItem(`card-${sectionIndex}-${cardIndex}`, trimmedValue);
+      const moveBtn = document.createElement("div");
+      moveBtn.className = "edit";
+      newList.appendChild(moveBtn);
+
+      const moveBtnimg = document.createElement("img");
+      const removeBtn = document.createElement("img");
+      moveBtnimg.src = "img/arrow.svg";
+      removeBtn.src = "img/cancel.svg";
+
+      moveBtn.appendChild(moveBtnimg);
+      moveBtn.appendChild(removeBtn);
+
+      removeBtn.addEventListener("click", function () {
+        cardsBox.removeChild(newList);
+      });
 
       textContent.value = "";
     } else {
@@ -85,26 +67,4 @@ createBtn.forEach(function (create) {
       addCardDiv.style.display = "flex";
     }
   });
-});
-
-function recreateCards() {
-  const containers = document.querySelectorAll(".container");
-  containers.forEach(function (container, sectionIndex) {
-    const cardsBox = container.querySelector(".cardsBox");
-    for (let cardIndex = 0; cardIndex < localStorage.length; cardIndex++) {
-      const key = localStorage.key(cardIndex);
-      if (key.startsWith(`card-${sectionIndex}-`)) {
-        const trimmedValue = localStorage.getItem(key);
-        const newList = document.createElement("div");
-        newList.className = "card";
-        newList.textContent = trimmedValue;
-        cardsBox.appendChild(newList);
-      }
-    }
-  });
-}
-
-// Call the function to recreate cards when the page loads
-window.addEventListener("load", function () {
-  recreateCards();
 });

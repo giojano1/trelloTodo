@@ -152,7 +152,7 @@ main {
   width: 100%;
 }
 .container {
-  width: 50%;
+  width: 30%;
   margin: 20px;
 }
 
@@ -176,12 +176,44 @@ main {
   border-radius: 5px;
   border: 2px solid transparent;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.edit {
+  display: flex;
+  align-items: center;
+}
+.edit img {
+  display: flex;
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+  padding-bottom: 2px;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: 200ms;
+}
+.edit img:hover {
+  border-color: gainsboro;
+  transition: all 0.2s ease-out;
 }
 .card:hover {
   border: 2px solid rgb(81, 81, 246);
 }
 .card p {
   word-break: break-all;
+}
+
+.editBar {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: var(--box-gray);
+}
+.editBox {
+  margin-top: 10px;
 }
 .addCard {
   margin-top: 10px;
