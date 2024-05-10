@@ -76,8 +76,9 @@ createBtn.forEach(function (create) {
 
       //move card show
       moveBtn.addEventListener("click", function () {
-        moveOptionsbox.style.display = "block";
+        moveOptionsbox.classList.toggle("block");
       });
+      // move card hide
 
       // move to "to do"
       moveOptions1.addEventListener("click", function () {
@@ -87,6 +88,8 @@ createBtn.forEach(function (create) {
 
         sourceBox.querySelector(".cardsBox").removeChild(card);
         destinationBox.querySelector(".cardsBox").appendChild(card);
+
+        moveOptionsbox.classList.toggle("block");
       });
 
       // move to "doing"
@@ -97,6 +100,8 @@ createBtn.forEach(function (create) {
 
         sourceBox.querySelector(".cardsBox").removeChild(card);
         destinationBox.querySelector(".cardsBox").appendChild(card);
+
+        moveOptionsbox.classList.toggle("block");
       });
 
       //move to "done"
@@ -107,6 +112,8 @@ createBtn.forEach(function (create) {
 
         sourceBox.querySelector(".cardsBox").removeChild(card);
         destinationBox.querySelector(".cardsBox").appendChild(card);
+
+        moveOptionsbox.classList.toggle("block");
       });
     } else {
       const createCardDiv = this.closest(".box").querySelector(".createCard");

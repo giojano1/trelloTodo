@@ -139,6 +139,7 @@ button {
 /* Global reset end */
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: purple;
 }
 :root {
   --box-bck: rgb(16, 18, 4);
@@ -152,8 +153,8 @@ main {
   width: 100%;
 }
 .container {
-  width: 30%;
-  margin: 20px;
+  width: 22%;
+  margin: 10px;
 }
 
 .title {
@@ -210,8 +211,10 @@ main {
 .moveOptions p {
   padding: 7px 15px;
   border: 1px solid gainsboro;
-  border-bottom: none;
   cursor: pointer;
+}
+.block {
+  display: block;
 }
 .card:hover {
   border: 2px solid rgb(81, 81, 246);
@@ -281,4 +284,20 @@ main {
   margin-left: 10px;
   width: 15px;
   display: flex;
+}
+.addList {
+  width: 22%;
+  margin: 10px;
+}
+.addlistCont {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.378);
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+.addlistCont p {
+  color: white;
+  padding-left: 10px;
 }
