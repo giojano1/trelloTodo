@@ -199,6 +199,20 @@ main {
   border-color: gainsboro;
   transition: all 0.2s ease-out;
 }
+.moveOptions {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: var(--box-gray);
+  display: none; /*block*/
+  border-radius: 5px;
+}
+.moveOptions p {
+  padding: 7px 15px;
+  border: 1px solid gainsboro;
+  border-bottom: none;
+  cursor: pointer;
+}
 .card:hover {
   border: 2px solid rgb(81, 81, 246);
 }
