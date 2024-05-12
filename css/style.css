@@ -149,11 +149,15 @@ body {
 /* main */
 main {
   display: flex;
-
+  flex-wrap: wrap;
+  width: 100%;
+}
+.main {
+  display: flex;
   width: 100%;
 }
 .container {
-  width: 22%;
+  width: 30%;
   margin: 10px;
 }
 
@@ -300,4 +304,44 @@ main {
 .addlistCont p {
   color: white;
   padding-left: 10px;
+}
+
+.addlistbox {
+  display: none; /*flex*/
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--box-bck);
+  padding: 10px 10px;
+  border-radius: 12px;
+  color: var(--text-gray);
+  font-size: 18px;
+}
+.addlistbtn {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.listBtn {
+  background-color: rgb(125, 153, 255);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+.cancellistBtn {
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  width: 15px;
+  display: flex;
+}
+.addlistbox input {
+  background-color: var(--box-gray);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--text-gray);
+}
+.addlistbox input:focus {
+  outline: none;
+  border-color: rgb(81, 81, 246);
 }

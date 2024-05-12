@@ -9,6 +9,7 @@ showAddCard.forEach(function (show) {
 
     const createCard = this.parentElement.querySelector(".createCard");
     createCard.style.display = "flex";
+    console.log("add card");
   });
 });
 //hide add card
@@ -125,4 +126,71 @@ createBtn.forEach(function (create) {
       addCardDiv.style.display = "flex";
     }
   });
+});
+
+// create list
+
+const createListCont = document.querySelector(".addlistCont");
+const createListBox = document.querySelector(".addlistbox");
+const cancelListBtn = document.querySelector(".cancellistBtn");
+const createListBtn = document.querySelector(".listBtn");
+createListCont.addEventListener("click", function () {
+  createListCont.style.display = "none";
+  createListBox.style.display = "flex";
+});
+cancelListBtn.addEventListener("click", function () {
+  createListCont.style.display = "flex";
+  createListBox.style.display = "none";
+});
+createListBtn.addEventListener("click", function () {
+  const newListTitle = document.querySelector(".listTitle").value;
+  // create section
+  const mainCont = document.querySelector(".main");
+  const newlistSection = document.createElement("section");
+  newlistSection.className = "container";
+  mainCont.appendChild(newlistSection);
+
+  // create box
+  const newBox = document.createElement("div");
+  newBox.className = "box";
+  newlistSection.appendChild(newBox);
+
+  // create title
+  const newTitle = document.createElement("div");
+  newTitle.className = "title";
+  newBox.appendChild(newTitle);
+  const titleSpan = document.createElement("span");
+  titleSpan.textContent = newListTitle;
+  newTitle.appendChild(titleSpan);
+
+  // create cards column
+  const cardsBox = document.createElement("div");
+  cardsBox.className = "cardsBox";
+  newBox.appendChild(cardsBox);
+
+  // create add card
+  const addCard = document.createElement("div");
+  addCard.className = "addCard";
+  newBox.appendChild(addCard);
+
+  const addCardImg = document.createElement("img");
+  addCardImg.src = "img/plus.svg";
+  addCard.appendChild(addCardImg);
+
+  const addCardSpan = document.createElement("span");
+  addCardSpan.textContent = "Add a card";
+  addCard.appendChild(addCardSpan);
+
+  // create create card
+  const createCard = document.createElement("div");
+  createCard.className = "createCard";
+  newBox.appendChild(createCard);
+
+  const createBtn = document.createElement("button");
+  createBtn.className = "createBtn";
+  createBtn.textContent = "Add card";
+  createCard.appendChild(createBtn);
+  // console.log(mainCont);
+  createListCont.style.display = "flex";
+  createListBox.style.display = "none";
 });
